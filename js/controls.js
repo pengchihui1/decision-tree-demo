@@ -76,6 +76,8 @@ function init() {
 
         displayTreePredictions();
         displayPoints();
+        
+        console.log(1111,tree.root)
 
         displayTreeDiv.innerHTML = treeToHtml(tree.root);
     }
