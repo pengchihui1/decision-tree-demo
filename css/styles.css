@@ -1,0 +1,8 @@
+
+.container-tree [destination],
+.back-button {
+  cursor: pointer;
+}
+.tree-node{
+  text-align:center;
+}

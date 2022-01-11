@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../css/styles.css" type="text/css" rel="stylesheet">
+        <link href="../assets/animate.css" type="text/css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="../js/questionTree.js"></script>
+    <title>jQuery questionTree.js Plugin Demo</title>
+    <style>
+    body { font-family:'Arial';}
+    h1 { margin:100px auto 30px auto; text-align:center;}
+    </style>
+    </head>
+    <body>
+   
+    <h1>jQuery questionTree.js Plugin Demo</h1>
+    
+    <ul class="main">
+        <li class="tree-node" id="node-intro">
+            <h2>Is that plugin is for you?</h2>
+            questionTree.js is a JQuery plugin who realize a series of dynamic questions like a decision tree.<br/>
+            <button destination="#node-boolean">Start</button>
+        </li>
+        <li class="tree-node" id="node-boolean">
+            <h2>Would you ask boolean question ?</h2>
+            This is question true/false or yes/no<br/>
+            <button destination="#node-boolean-more">Yes</button> <button destination="#node-multichoise">No</button>
+        </li>
+        <li class="tree-node" id="node-boolean-more">
+            <h2>All right, this plugin is for you !</h2>
+            Would you know more ?<br/>
+            <button destination="#node-multichoise">Yes</button>
+        </li>
+        <li class="tree-node" id="node-multichoise">
+            <h2>Would you ask multichoice question ?</h2>
+            <select destinationFor="multichoice-button">
+                <option value="#node-end">Yes</option>
+                <option value="#node-end">Maybe</option>
+                <option value="#node-fail">No</option>
+            </select>
+            <button id="multichoice-button" destination="#node-end">Validate</button>
+        </li>
+         <li class="tree-node" id="node-fail">
+            <h2>That plugin is not absolutely</h2>
+             Do you want to check it again ?
+             <button destination="#node-intro">Check again</button>
+         </li>
+         <li class="tree-node" id="node-end">
+            <h2>All right, this plugin is for you !</h2>
+            <strong>What is good with questionTree.js :</strong>
+            <ul>
+                <li>Build with HTML content (better than a JS object, for SEO for exemple)</li>
+                <li>Customizable (options)</li>
+                <li>Easy to layout (no CSS useless)</li>
+            </ul>
+            <button destination="#node-intro">Check again</button>
+         </li>
+    </ul>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.main').questionTree({
+                backButtonElement: "a",
+                backButtonLabel: "Retour",
+                showAnimation: function(){
+                    $(this).removeClass('animated fadeInDown fadeOutDown');
+                    $(this).addClass('animated fadeInDown');
+                },
+                hideAnimation: function(){
+                    $(this).removeClass('animated fadeInDown fadeOutDown');
+                    $(this).addClass('animated fadeOutDown');
+                }
+            });
+        });
+    </script>
+
+
+    <style media="screen" type="text/css">
+        ul.main{
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        ul.main li.tree-node{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            line-height: 200%;
+        }
+        ul.main li.tree-node:nth-child(5n){
+            background-color: #EA8C55;
+        }
+        ul.main li.tree-node:nth-child(5n+1){
+            background-color: #C75146;
+        }
+        ul.main li.tree-node:nth-child(5n+2){
+            background-color: #AD2E24;
+        }
+        ul.main li.tree-node:nth-child(5n+3){
+            background-color: #81171B;
+        }
+        ul.main li.tree-node:nth-child(5n+4){
+            background-color: #540804;
+        }
+    </style>
+</body>
+</html>
